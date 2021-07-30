@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    //= template/head.html
+    <link
+ rel="stylesheet"
+ href="https://unpkg.com/swiper/swiper-bundle.min.css"
+/>
+</head>
+<body>
+//= template/header.html
+<a id="yukari"><img src="img/arrow.png" alt=""></a>
+<div class="slider div-fluid" >
+    <div class="swiper-container mySwiper2">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img class="img-fluid" src="img/image 2.png" />
+      </div>
+      <div class="swiper-slide">
+        <img src="img/image 2.png" />
+      </div>
+      <div class="swiper-slide">
+        <img src="img/image 2.png" />
+      </div>
+      <div class="swiper-slide">
+        <img src="img/image 2.png" />
+      </div>
+      <div class="swiper-slide">
+        <img src="img/image 2.png" />
+      </div>
+      <div class="swiper-slide">
+        <img src="img/image 2.png" />
+      </div>
+      
+    </div>
+
+  </div>
+  <div thumbsSlider="" class="swiper-container mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="img/image 2.png" />
+          </div>
+          <div class="swiper-slide">
+            <img class="img-fluid" src="img/image 2.png" />
+          </div>
+          <div class="swiper-slide">
+            <img src="img/image 2.png" />
+          </div>
+          <div class="swiper-slide">
+            <img src="img/image 2.png" />
+          </div>
+          <div class="swiper-slide">
+            <img src="img/image 2.png" />
+          </div>
+          <div class="swiper-slide">
+            <img src="img/image 2.png" />
+          </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container product-boxes">
+    <div class="cards">
+        <div class="row" id="printcard">
+           
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <p id="uyari">Kampanya 22:00 - 06:00 saatleri arasında vatanbilgisayar.com’da geçerli olup; stoklarla sınırlıdır. Seri sonu, teşhir ürünleri, ticari ve adetli alımlarda geçerli değildir.
+
+    </p>
+</div>
+
+
+
+
+       <!-- Swiper JS -->
+       <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+       <!-- Initialize Swiper -->
+       <script>
+         var swiper = new Swiper(".mySwiper", {
+           spaceBetween: 35,
+           slidesPerView: 6,
+           
+           watchSlidesVisibility: true,
+           watchSlidesProgress: true,
+         });
+         var swiper2 = new Swiper(".mySwiper2", {
+           spaceBetween: 35,
+           navigation: {
+             nextEl: ".swiper-button-next",
+             prevEl: ".swiper-button-prev",
+           },
+           thumbs: {
+             swiper: swiper,
+           },
+         });
+       </script>
+       <script>
+         var vimg;
+         var html ='<div class="col-md-6 col-xs-12">';
+         html +='<div class="card">';
+         html +='<div class="card-content">';
+         html +='<div class="col-md-6 col-xs-6 align-card-content">';
+         html +='<div class="card-block align-card-content">';
+         html +='<h4 class="card-title" id="slogan1"></h4>';
+         html +='<h2 class="card-title" id="slogan2"></h4>';
+         html +='<a id="tumunu-gor" target="_blank">Tümünü Gör</a>'
+         html +='</div>';
+         html +='</div>';
+         html +='<div class="col-md-6 col-xs-6 userimg align-card-content"> <img id="product-image"> ';
+         html +='<p id="urun-title"></p>';
+         html +='<a id="urun-fiyat" target="_blank"></a>';
+         html +='</div>';
+         html +='</div>';
+         html +='</div>';
+         html +='</div>';    
+
+$(document).ready(function(){   
+    $.ajax({ 
+    type: 'GET', 
+    url: 'https://my-json-server.typicode.com/ServetArslan/products-api/products', 
+    dataType: 'json',
+    success: function (data) {    
+
+         for(var i=0;i<data.length;i++){
+             $('#printcard').append(html);
+
+            vatanlink="https://www.vatanbilgisayar.com";
+            vatanlink2="https://www.vatanbilgisayar.com/";  
+            tl=" TL"
+            uimg=data[i].urun_gorsel;
+            s1=data[i].slogan1;
+            s2=data[i].slogan2;
+            link1=data[i].link;
+            urunadi=data[i].urun_ad;
+            urunfiyat=data[i].urun_fiyat;
+            link2=data[i].urun_link;
+            $(".userimg img:eq("+i+")").attr('src',uimg );
+            $("h4#slogan1:eq("+i+")").text(s1);
+            $("h2#slogan2:eq("+i+")").text(s2);
+            $(".userimg #urun-title:eq("+i+")").text(urunadi);
+            $(".userimg #urun-fiyat:eq("+i+")").text(urunfiyat + tl);
+            $(".card-block #tumunu-gor:eq("+i+")").attr('href',vatanlink+link1);
+            $(".userimg #urun-fiyat:eq("+i+")").attr('href',vatanlink2+link2);
+         }
+
+    }
+});
+});
+       </script>
+<script>
+var btn = $('#yukari');
+
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
+</script>
+//= template/footer.html
+</body>
+</html>

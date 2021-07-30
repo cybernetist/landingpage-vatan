@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+body{
+    background: #02458A;
+    position: relative;
+        height: 100%;
+        font-family: Roboto;
+}
+.div-fluid{
+    width: 100%;
+    padding-right: var(--bs-gutter-x,50px);
+padding-left: var(--bs-gutter-x,50px);
+margin-right: auto;
+margin-left: auto;
+}
+.slider{
+    margin-top: 50px;
+}
+
+.align-card-content{
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: center;
+}
+// Swiper
+
+.swiper-container {
+    width: 100%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .swiper-slide {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .mySwiper2 {
+    max-height: 360px;
+    width: 100%;
+  }
+
+  .mySwiper {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    margin-top: 50px;
+  }
+  .mySwiper .swiper-wrapper{
+      justify-content: center;
+  }
+
+  .mySwiper .swiper-slide {
+    width: 80px !important;
+height: 60px;
+opacity: .4;
+  }
+
+  
+
+  .mySwiper .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #uyari{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    
+    color: #FFFFFF;
+  }
+
+  .product-boxes{
+      margin-top: 100px;
+  }
+
+  .userimg img{
+      max-width: 70px;
+      height: auto;
+  }
+  #printcard .card {
+    height: 200px !important;
+    margin-right: 5px;
+    margin-bottom: 30px;
+}
+
+#printcard{
+    .card-content{
+        display: flex;
+        height: 100%;
+    }
+
+    #tumunu-gor{
+        width: 125px;
+        height: 29px;
+        margin-top: 40px;
+        background: #02458A;
+border-radius: 33px;
+font-family: Roboto;
+font-weight: bold;
+font-size: 14px;
+line-height: 16px;
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+text-decoration: none;
+color: #FFFFFF;
+margin-bottom: 28px;
+    }
+    #slogan1{
+        font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+color: #000000;
+    }
+    #slogan2{
+        font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 21px;
+text-align: center;
+
+color: #000000;
+    }
+    .userimg::after {
+        content: '';
+        height: 180px;
+        border-left: 1px solid #02458A;
+        position: absolute;
+        left: 50%;
+    opacity: .4;
+    top: 4%;
+    }
+    #urun-title{
+        font-family: Roboto;
+font-weight: 300;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+margin-top: 8px !important;
+max-width: 260px;
+color: #000000;
+margin: 0;
+    }
+    #urun-fiyat{
+        width: 117px;
+        height: 29px;
+        text-decoration: none;
+        background: #FFFFFF;
+border: 1px solid #000000;
+box-sizing: border-box;
+border-radius: 33px;
+font-size: 13px;
+line-height: 15px;
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+color: #000000;
+margin-top: 15px;
+margin-bottom: 28px;
+    }
+}
+
+
+
+
+
+#yukari{
+    display:none;
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:#00b2f2;
+    width:50px;
+    height:50px;
+    text-decoration:none;
+    border-radius:35px;
+    transition:all .3s ease;
+    z-index:999;
+}
+
+#yukari {
+    display: inline-block;
+
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: transparent !important;
+    transition: background-color .3s, 
+      opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+  }
+  
+  #yukari:hover {
+    cursor: pointer;
+    background-color: #333;
+  }
+  #yukari:active {
+    background-color: #555;
+  }
+  #yukari.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+
+
+  //Responsive
+
+
+  @media screen and (max-width: 600px) {
+    
+    .product-boxes {
+        margin-top: 50px;
+    }
+
+    .col-xs-6{
+        width: 50%;
+    }
+    .col-xs-12{
+        width: 100%;
+    }
+    #printcard #urun-title {
+        font-size: 11px;
+        width: auto;
+        text-align: center;
+        margin: 0;
+    }
+    #printcard #slogan1{
+        font-size: 13px;
+    }
+    #printcard #slogan2{
+        font-size: 15px;
+    }
+
+    .swiper-slide img{
+        object-fit: cover !important;
+    }
+    .swiper-container{
+        height: 200px;
+    }
+    .product-boxes {
+        margin-top: 0px;
+    }
+    
+  }
+
+  @media screen and (max-width: 992px) {
+    .swiper-slide img{
+        object-fit: contain;
+    }
+    .swiper-container{
+        height: 200px;
+    }
+    .product-boxes {
+        margin-top: 0px;
+    }
+}
